@@ -90,6 +90,10 @@ if (isset($subject)) {
                 $operand = explode(',',$operand);
                 $output = in_array($subject,$operand) ? $then : (isset($else) ? $else : '');
                 break;
+            case 'between':
+                $operand = explode(',',$operand);
+                $output = count($operand > 1) && intval($subject) >= intval($operand[0]) && intval($subject) <= intval($operand[1]) ? $then : (isset($else) ? $else : '');
+                break;
             case '==':
             case '=':
             case 'eq':
